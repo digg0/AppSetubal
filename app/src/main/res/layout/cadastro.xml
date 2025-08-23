@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#2A0200">
+
+
+    <ImageView
+        android:id='@+id/logo'
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src='@drawable/logotipofinal'
+        android:contentDescription="Logo da empresa"
+        android:layout_marginTop="-35dp"
+
+        />
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10px"
+        />
+
+
+
+
+    <EditText
+        android:id="@+id/cad_nome"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:inputType="text"
+        android:padding='12dp'
+        android:background='@android:drawable/editbox_background'
+        android:textStyle="bold"
+        android:layout_marginBottom="40px"
+
+        />
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10px"
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/cad_email"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="teste123@gmail.com"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:textStyle="bold"
+        android:layout_marginBottom="40px"
+
+
+        />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Contato"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10px"
+
+        />
+
+    <EditText
+        android:id="@+id/cad_contato"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="(88) 9999-0000"
+        android:inputType="phone"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:textStyle="bold"
+        android:layout_marginBottom="40px"
+
+        />
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10px"
+
+        />
+
+
+
+    <EditText
+        android:id="@+id/cad_senha"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:textStyle="bold"
+        android:layout_marginBottom="40px"
+
+        />
+
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirmar Senha"
+        android:textColorHint="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="10px"
+
+        />
+
+
+    <EditText
+        android:id="@+id/cad_consenha"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="Confirmar Senha"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:textStyle="bold"
+        android:layout_marginBottom="40px"
+
+
+        />
+
+
+
+    <Button
+        android:id="@+id/botao_cadastrara"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#C18D3E"
+        android:textColor="#FFFFFF"
+        android:text='CADASTRAR'
+        android:onClick="show"
+        android:background="@drawable/botao_redondo"
+        android:layout_marginTop="30dp"
+        />
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226457670852",
+    "project_id": "barbeariasetubal-5c618",
+    "storage_bucket": "barbeariasetubal-5c618.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226457670852:android:695b3a0b6a48b0da74a591",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxQ1oa2HwcWlfQgC1t7DBY90OtztA0MN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
