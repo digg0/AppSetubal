@@ -22,6 +22,8 @@ class TelaTeste : androidx.activity.ComponentActivity() {
             val voltarTelaLogin = Intent(this, MainActivity::class.java)
             startActivity(voltarTelaLogin)
             finish()
+
+
         }
     }
 }

@@ -52,14 +52,7 @@
         android:layout_marginTop="8dp"
         android:gravity="center_vertical">
 
-        <CheckBox
-            android:id="@+id/checkbox_lembrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lembrar"
-            android:textSize="14sp"
-            android:textColor="#FFFFFF"
-            android:layout_weight="1" />
+
 
         <TextView
             android:id="@+id/texto_esqueceu"
@@ -85,7 +78,7 @@
         android:layout_marginTop="10dp"
         />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ou"

@@ -24,6 +24,9 @@ import com.google.firestore.v1.StructuredQuery
 
 
 class TelaCadastro : ComponentActivity() {
+
+
+    private val database = FirebaseFirestore.getInstance()
     private lateinit var binding: CadastroBinding
     private val auth = FirebaseAuth.getInstance()
 
@@ -43,15 +46,27 @@ class TelaCadastro : ComponentActivity() {
             val nome = binding.cadNome.text.toString()
             val contato = binding.cadContato.text.toString()
 
-            if(email.isEmpty()|| senha.isEmpty() ){
+            val usuariosMap = hashMapOf(
+                "nome" to nome,
+                "contato" to contato,
+                "email" to email,
+                "senha" to senha
+            )
+
+            if(email.isEmpty()|| senha.isEmpty() || nome.isEmpty() || contato.isEmpty() ){
                 Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show()
 
             }else{
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener{ cadastro ->
+
                     if (cadastro.isSuccessful){
                         Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
                         binding.cadEmail.setText("")
                         binding.cadSenha.setText("")
+                        binding.cadNome.setText("")
+                        binding.cadContato.setText("")
+                        database.collection("Usuarios").document(nome).set(usuariosMap)
+                        FirebaseAuth.getInstance().signOut()
                         voltarTelaLogin()
                     }
                 }.addOnFailureListener{exceptions ->
