@@ -15,4 +15,14 @@
         android:padding="12dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/botao_testar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TESTAR"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="@android:color/black"
+        android:textColor="@android:color/white"/>
 </LinearLayout>

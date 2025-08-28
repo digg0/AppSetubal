@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ContainerComponents">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:background">@drawable/container_components</item>
+
+    </style>
+
+    <style name="Edit_Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:padding">17dp</item>
+        <item name="android:layout_marginLeft">30dp</item>\
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginTop">60dp</item>
+    </style>
+
+    <style name="Edit_Cadastro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edit_text</item>
+        <item name="android:padding">17dp</item>
+        <item name="android:layout_marginLeft">30dp</item>\
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:layout_marginTop">45dp</item>
+    </style>
+
+    <style name="Text_View">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">30dp</item>\
+        <item name="android:layout_marginRight">30dp</item>
+
+
+
+    </style>
+
+    <style name="CustomDatePicker" parent="">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+</resources>

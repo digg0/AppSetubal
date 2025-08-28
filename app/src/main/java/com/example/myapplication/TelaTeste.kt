@@ -25,5 +25,15 @@ class TelaTeste : androidx.activity.ComponentActivity() {
 
 
         }
+
+        binding.botaoTestar.setOnClickListener{
+
+            val telatestar = Intent(this, AjusteHorarios::class.java)
+            startActivity(telatestar)
+
+//        }
+
+
+        }
     }
 }

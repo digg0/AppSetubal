@@ -1,166 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center"
-    android:background="#2A0200">
-
+    android:background="@drawable/barbearia22">
 
     <ImageView
-        android:id='@+id/logo'
+        android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src='@drawable/logotipofinal'
+        android:src="@drawable/logotipofinal"
         android:contentDescription="Logo da empresa"
-        android:layout_marginTop="-35dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        />
-
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponents"
+        android:layout_height="460dp"
+        android:layout_marginTop="-30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Nome"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="10px"
-        />
-
-
-
+        style="@style/Text_View"
+        android:text="Nome"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintBottom_toTopOf="@id/cad_nome"/>
 
     <EditText
+        style="@style/Edit_Cadastro"
+        android:hint="Ex: Jose da Silva"
+        android:fontFamily="sans-serif-medium"
         android:id="@+id/cad_nome"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nome"
-        android:inputType="text"
-        android:padding='12dp'
-        android:background='@android:drawable/editbox_background'
-        android:textStyle="bold"
-        android:layout_marginBottom="40px"
-
-        />
-
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="E-mail"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="10px"
-
-        />
-
-
+        app:layout_constraintTop_toBottomOf="@id/containerComponents"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toTopOf="@id/containerComponents"/>
 
     <EditText
+        style="@style/Edit_Cadastro"
+        android:hint="email@exemplo.com"
+        android:fontFamily="sans-serif-medium"
         android:id="@+id/cad_email"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="teste123@gmail.com"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:textStyle="bold"
-        android:layout_marginBottom="40px"
-
-
-        />
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cad_nome"/>
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Contato"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="10px"
-
-        />
+        style="@style/Text_View"
+        android:text="Email"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintBottom_toTopOf="@id/cad_email"/>
 
     <EditText
-        android:id="@+id/cad_contato"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        style="@style/Edit_Cadastro"
         android:hint="(88) 9999-0000"
-        android:inputType="phone"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:textStyle="bold"
-        android:layout_marginBottom="40px"
-
-        />
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/cad_contato"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cad_email"/>
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Senha"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="10px"
-
-        />
-
-
+        style="@style/Text_View"
+        android:text="Contato"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintBottom_toTopOf="@id/cad_contato"/>
 
     <EditText
+        style="@style/Edit_Cadastro"
+        android:hint="●●●●●●●"
+        android:fontFamily="sans-serif-medium"
         android:id="@+id/cad_senha"
-        android:layout_width="300dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Senha"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:textStyle="bold"
-        android:layout_marginBottom="40px"
-
-        />
-
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cad_contato"
+        android:inputType="textPassword"/>
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Confirmar Senha"
-        android:textColorHint="#FFFFFF"
-        android:textColor="#FFFFFF"
-        android:layout_marginLeft="10px"
-
-        />
-
-
-    <EditText
-        android:id="@+id/cad_consenha"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:hint="Confirmar Senha"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:textStyle="bold"
-        android:layout_marginBottom="40px"
-
-
-        />
+        style="@style/Text_View"
+        android:text="Senha"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintBottom_toTopOf="@id/cad_senha"/>
 
 
 
     <Button
         android:id="@+id/botao_cadastrara"
-        android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#C18D3E"
+        android:fontFamily="sans-serif-medium"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:backgroundTint="#006e65"
         android:textColor="#FFFFFF"
-        android:text='CADASTRAR'
+        android:text="CADASTRAR"
         android:onClick="show"
         android:background="@drawable/botao_redondo"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/cad_senha"/>
 
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     <solid android:color="#2196F3" />
 
     <!-- Borda arredondada -->
-    <corners android:radius="16dp" />
+    <corners android:radius="10dp" />
 
     <!-- Borda opcional -->
     <stroke

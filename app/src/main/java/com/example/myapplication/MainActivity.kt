@@ -35,12 +35,12 @@ class MainActivity : ComponentActivity() {
 
 
 
-        val botaoFunc = findViewById<Button>(R.id.botao_func)
-
-        botaoFunc.setOnClickListener{
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-        }
+//        val botaoFunc = findViewById<Button>(R.id.botao_func)
+//
+//        botaoFunc.setOnClickListener{
+//            val intent = Intent(this, SecondActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.botaoEntrar.setOnClickListener{
             val email = binding.campoUsuario.text.toString()
