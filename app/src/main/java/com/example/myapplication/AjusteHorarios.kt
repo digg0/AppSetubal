@@ -55,6 +55,11 @@ class AjusteHorarios : ComponentActivity() {
                         checkbox.isChecked = horariosSalvos.contains(checkbox.text.toString())
 
                     }
+                }else {
+                    // se não existir documento, desmarca tudo
+                    for (checkbox in checkboxes) {
+                        checkbox.isChecked = false
+                    }
                 }
             }
 
@@ -76,12 +81,8 @@ class AjusteHorarios : ComponentActivity() {
                     buttonView.isChecked = false
                     return@setOnCheckedChangeListener
 
-                }else {
-                    // se não existir documento, desmarca tudo
-                    for (checkbox in checkboxes) {
-                        checkbox.isChecked = false
-                    }
                 }
+
 
                 salvarHorariosDisponiveis(selecionados, data)
             }
