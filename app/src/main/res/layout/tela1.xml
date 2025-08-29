@@ -1,114 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center"
-    android:background="#2A0200">
-
+    android:background="@drawable/barbearia22">
 
     <ImageView
-        android:id='@+id/logo'
+        android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src='@drawable/logotipofinal'
+        android:src="@drawable/logotipofinal"
         android:contentDescription="Logo da empresa"
-        android:layout_marginBottom="32dp"
-        />
+        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponents"
+        android:layout_height="326dp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <TextView
+        style="@style/Text_View"
+        android:fontFamily="sans-serif-medium"
+        android:text="Email"
+        android:textColor="#2c2c2c"
+        app:layout_constraintBottom_toTopOf="@id/campo_usuario"
+        app:layout_constraintStart_toStartOf="@id/containerComponents" />
 
     <EditText
+        style="@style/Edit_Text"
+        android:hint="email@exemplo.com"
+        android:fontFamily="sans-serif-medium"
         android:id="@+id/campo_usuario"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Usuario"
-        android:inputType="text"
-        android:padding='12dp'
-        android:background='@android:drawable/editbox_background'
-        android:backgroundTint="#C18D3E"
-        android:textStyle="bold"
-        android:textColorHint="#FFFFFF"
-        />
+        app:layout_constraintTop_toBottomOf="@id/containerComponents"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toTopOf="@id/containerComponents"/>
 
     <EditText
+        style="@style/Edit_Text"
+        android:hint="●●●●●●●"
+        android:fontFamily="sans-serif-medium"
         android:id="@+id/campo_senha"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Senha"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/campo_usuario"
         android:inputType="textPassword"
-        android:layout_marginTop="10dp"
-        android:padding="12dp"
-        android:background="@android:drawable/editbox_background"
-        android:backgroundTint="#C18D3E"
-        android:textStyle="bold"
-        android:textColorHint="#FFFFFF"
-
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="8dp"
-        android:gravity="center_vertical">
-
-
-
-        <TextView
-            android:id="@+id/texto_esqueceu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Esqueceu a senha?"
-            android:textSize="14sp"
-            android:textColor="#CCCC"
-            android:textStyle="bold"
-            android:gravity="end"
-            android:clickable="true"
-            android:focusable="true" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/botao_entrar"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#C18D3E"
-        android:textColor="#FFFFFF"
-        android:text='ENTRAR'
-        android:background="@drawable/botao_redondo"
-        android:layout_marginTop="10dp"
         />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ou"
-        android:layout_margin='12dp'
-        android:textColor="#FFFFFF"
-        android:background='@android:color/transparent'
-        />
+        style="@style/Text_View"
+        android:text="Senha"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintBottom_toTopOf="@id/campo_senha"/>
 
-    <Button
-        android:id="@+id/botao_func"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:backgroundTint="#C18D3E"
-        android:textColor="#FFFFFF"
-        android:text='FUNCIONARIO'
-        android:background="@drawable/botao_redondo"
-        android:layout_marginTop="10dp"
-        />
 
     <TextView
         android:id="@+id/botao_cadastro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Não possui uma conta? Cadastre-se"
-        android:textStyle="italic"
+        android:text="Não tem conta? Cadastre-se"
+        android:fontFamily="sans-serif-medium"
         android:clickable="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="15dp"
         android:focusable="true"
-        android:textColor="#CCCC"
+        android:textColor="#2c2c2c"
         android:linksClickable="true"
-        />
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/botao_entrar"/>
 
-</LinearLayout>
+    
+
+    <Button
+        android:id="@+id/botao_entrar"
+        android:fontFamily="sans-serif-medium"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#006e65"
+        android:textColor="#FFFFFF"
+        android:text='ENTRAR'
+        android:background="@drawable/botao_redondo"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/campo_senha"/>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

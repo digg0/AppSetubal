@@ -16,7 +16,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.R
-import com.example.myapplication.SecondActivity
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.example.myapplication.databinding.Tela1Binding
@@ -35,12 +34,12 @@ class MainActivity : ComponentActivity() {
 
 
 
-        val botaoFunc = findViewById<Button>(R.id.botao_func)
-
-        botaoFunc.setOnClickListener{
-            val intent = Intent(this, SecondActivity::class.java)
-            startActivity(intent)
-        }
+//        val botaoFunc = findViewById<Button>(R.id.botao_func)
+//
+//        botaoFunc.setOnClickListener{
+//            val intent = Intent(this, SecondActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.botaoEntrar.setOnClickListener{
             val email = binding.campoUsuario.text.toString()
