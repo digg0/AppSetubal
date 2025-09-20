@@ -70,7 +70,7 @@ class MainActivity : ComponentActivity() {
 
     }
     private fun navegarTelaPrincipal(){
-        val intent = Intent (this, TelaTeste::class.java)
+        val intent = Intent (this, BarberHub::class.java)
         startActivity(intent)
         finish()
     }

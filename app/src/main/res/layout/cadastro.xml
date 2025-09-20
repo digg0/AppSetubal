@@ -115,7 +115,6 @@
         android:fontFamily="sans-serif-medium"
         android:layout_width="200dp"
         android:layout_height="35dp"
-        android:backgroundTint="#006e65"
         android:textColor="#FFFFFF"
         android:text="CADASTRAR"
         android:onClick="show"

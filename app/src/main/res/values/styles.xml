@@ -8,6 +8,22 @@
 
     </style>
 
+    <style name="ContainerAzul">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:background">@drawable/container_azul</item>
+
+    </style>
+
+
+    <style name="ContainerBorder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:background">@drawable/container_border</item>
+
+    </style>
+
+
     <style name="Edit_Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <!-- Cor de fundo do botão -->
-    <solid android:color="#2196F3" />
+    <solid android:color="#006e65" />
 
     <!-- Borda arredondada -->
     <corners android:radius="10dp" />
@@ -11,5 +11,5 @@
     <!-- Borda opcional -->
     <stroke
         android:width="2dp"
-        android:color="#1976D2" />
+        android:color="#006e65" />
 </shape>

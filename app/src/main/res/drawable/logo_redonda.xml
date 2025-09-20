@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:background="@drawable/logotipofinal"> <!-- ou rectangle -->
+    <solid android:color="#391607"/>
+
+
+    <stroke
+        android:width="4dp"
+        android:color="@color/material_dynamic_neutral10"/>
+</shape>

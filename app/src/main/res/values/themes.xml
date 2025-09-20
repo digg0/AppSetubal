@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.MyApplication" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="android:statusBarColor">@color/blue</item>
+        <item name="materialButtonStyle">@style/MyCustomButton</item>
+    </style>
+
+    <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/yellow</item>
+    </style>
+
+    <style name="MyCustomButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#1b6c82</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
+    <color name="blue">#369BF4</color>
+    <color name="yellow">#F4CB36</color>
 </resources>
+
