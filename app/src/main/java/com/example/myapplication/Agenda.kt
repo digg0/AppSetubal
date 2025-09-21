@@ -49,6 +49,8 @@ class Agenda : Fragment() { // nome ajustado
             // Buscar os horários no Firebase
             carregarHorarios(data)
         }
+
+
     }
 
     private fun carregarHorarios(data: String) {

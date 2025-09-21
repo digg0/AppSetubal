@@ -5,8 +5,7 @@
     android:id="@+id/containerAcoes"
     android:layout_width="350dp"
     android:layout_height="450dp"
-    android:padding="16dp"
-    android:background="@drawable/container_border">
+    android:padding="16dp">
 
     <!-- Título do diálogo -->
     <TextView

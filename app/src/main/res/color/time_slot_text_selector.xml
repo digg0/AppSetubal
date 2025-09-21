@@ -3,4 +3,9 @@
     <item android:color="@android:color/white" android:state_checked="true"/>
     <!-- Texto preto quando normal -->
     <item android:color="@android:color/black"/>
+
+    <item android:color="@color/green" android:state_pressed="true"/>
+    <item android:color="@color/green" android:state_enabled="true"/>
+    <item android:color="@color/green"/>
 </selector>
+

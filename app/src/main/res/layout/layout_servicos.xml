@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_margin="8dp"
     android:background="@drawable/container_border"
@@ -49,7 +50,8 @@
                 android:layout_height="35dp"
                 android:text="Ativar"
                 android:background="@drawable/button_green"
-                android:textColor="@color/green"
+                app:backgroundTint="@color/green"
+                android:textColor="@color/white"
                 android:textSize="12sp" />
 
             <Button
@@ -63,10 +65,11 @@
                 android:padding="8dp" />
 
             <Button
-                android:id="@+id/btnDeletar"
+                android:id="@+id/buttonDeletar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🗑️"
+                android:text=""
+                app:backgroundTint="@color/red"
                 android:layout_marginStart="8dp"
                 android:minWidth="0dp"
                 android:minHeight="0dp"

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_layout"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!-- Título do aviso -->
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aviso!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <!-- Mensagem do aviso -->
+    <TextView
+        android:id="@+id/textViewMensagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Você deseja realmente deletar?"
+        android:textSize="16sp"
+        android:paddingBottom="24dp" />
+
+    <!-- Botões -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/botaoConfirmar"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Confirmar" />
+
+        <Button
+            android:id="@+id/botaoCancelar"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Cancelar"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+</LinearLayout>

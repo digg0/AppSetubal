@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,10 +56,35 @@ class Perfil : Fragment() {
                     listaServicos.clear()
                     for (doc in snapshots) {
                         val servico = doc.toObject(Servicos::class.java)
-                        listaServicos.add(servico)
+                        // Preenche o documentId no objeto
+                        val servicoComId = servico.copy(documentId = doc.id)
+                        listaServicos.add(servicoComId)
                     }
                     adapterServicos.notifyDataSetChanged()
                 }
+            }
+    }
+
+    // --------- Função adicional para carregar serviços diretamente ---------
+    private fun carregarServicos() {
+        db.collection("GerServicos")
+            .get()
+            .addOnSuccessListener { result ->
+                listaServicos.clear()
+                for (document in result.documents) {
+                    val servico = Servicos(
+                        documentId = document.id,
+                        nome = document.getString("nome") ?: "",
+                        descricao = document.getString("descricao") ?: "",
+                        preco = document.getString("preco") ?: "",
+                        duracao = document.getString("duracao") ?: ""
+                    )
+                    listaServicos.add(servico)
+                }
+                adapterServicos.notifyDataSetChanged()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(requireContext(), "Erro ao carregar serviços: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
 

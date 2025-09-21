@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/homeFragment">
+
+    <!-- Primeiro fragment (Home) -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.myapplication.Home"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+
+        <!-- Ação para ir do Home para OutroFragment -->
+        <action
+            android:id="@+id/action_home_to_outroFragment"
+            app:destination="@id/agendaFragment" />
+    </fragment>
+
+    <!-- Segundo fragment (Destino) -->
+    <fragment
+        android:id="@+id/agendaFragment"
+        android:name="com.example.myapplication.Agenda"
+        android:label="Outro"
+        tools:layout="@layout/fragment_agenda" />
+</navigation>

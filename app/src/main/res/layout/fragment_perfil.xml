@@ -36,10 +36,10 @@
             android:fontFamily="sans-serif-medium"
             android:layout_width="150dp"
             android:layout_height="40dp"
-            android:backgroundTint="#000000"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             android:text='+  Novo Serviço'
-            android:background="@drawable/botao_redondo"
+            android:background="@drawable/button_green"
+            app:backgroundTint="@color/green"
             android:layout_marginTop="35dp"
             android:layout_marginRight="10dp"
             app:layout_constraintEnd_toEndOf="parent"
