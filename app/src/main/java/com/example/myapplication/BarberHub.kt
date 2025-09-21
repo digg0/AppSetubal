@@ -1,5 +1,8 @@
 package com.example.myapplication
 
+
+
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +29,8 @@ class BarberHub : AppCompatActivity() {
                 R.id.bottom_config -> replaceFrament(AjusteHorarios())
                 R.id.bottom_profile -> replaceFrament(Perfil())
                 R.id.bottom_config -> replaceFrament(Configs())
+
+
 
 
 

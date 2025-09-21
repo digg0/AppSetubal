@@ -6,6 +6,7 @@
         <item name="colorPrimaryVariant">@color/white</item>
         <item name="android:statusBarColor">@color/blue</item>
         <item name="materialButtonStyle">@style/MyCustomButton</item>
+
     </style>
 
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
@@ -16,6 +17,8 @@
         <item name="backgroundTint">#1b6c82</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
+
 
 
     <color name="blue">#369BF4</color>

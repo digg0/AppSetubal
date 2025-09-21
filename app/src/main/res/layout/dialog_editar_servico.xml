@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerAcoes"
+    android:layout_width="350dp"
+    android:layout_height="450dp"
+    android:padding="16dp"
+    android:background="@drawable/container_border">
+
+    <!-- Título do diálogo -->
+    <TextView
+        android:id="@+id/TextView_AdicionarServico"
+        android:hint="Adicionar Novo Serviço"
+        android:fontFamily="sans-serif-medium"
+        android:textColorHint="#186D82"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Nome do serviço -->
+    <TextView
+        android:id="@+id/TextView_NomeServico"
+        android:text="Nome do Serviço"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextView_AdicionarServico"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/EditText_NomeBarbearia"
+        android:background="@drawable/container_edittext"
+        android:backgroundTint="#f3f3f5"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextView_NomeServico"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"/>
+
+    <!-- Descrição do serviço -->
+    <TextView
+        android:id="@+id/TextView_DescriçãoServico"
+        android:text="Descrição"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText_NomeBarbearia"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/EditText_DescriçãoServico"
+        android:background="@drawable/container_edittext"
+        android:backgroundTint="#f3f3f5"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextView_DescriçãoServico"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"/>
+
+    <!-- Preço do serviço -->
+    <TextView
+        android:id="@+id/TextView_TelefoneBarbearia"
+        android:text="Preço (R$)"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText_DescriçãoServico"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/EditText_PrecoServico"
+        android:background="@drawable/container_edittext"
+        android:backgroundTint="#f3f3f5"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextView_TelefoneBarbearia"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="15dp"
+        android:padding="10dp"/>
+
+    <!-- Duração do serviço -->
+    <TextView
+        android:id="@+id/TextView_Endereço"
+        android:text="Duração (min)"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="#2c2c2c"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText_DescriçãoServico"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/EditText_DuracaoServico"
+        android:background="@drawable/container_edittext"
+        android:backgroundTint="#f3f3f5"
+        android:layout_width="120dp"
+        android:layout_height="45dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TextView_Endereço"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:padding="10dp"/>
+
+    <!-- Botões -->
+    <Button
+        android:id="@+id/button_SalvarServico"
+        android:fontFamily="sans-serif-medium"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#006e65"
+        android:textColor="#FFFFFF"
+        android:text="Salvar"
+        android:background="@drawable/botao_redondo"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText_PrecoServico"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"/>
+
+    <Button
+        android:id="@+id/button_Cancelar"
+        android:fontFamily="sans-serif-medium"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#000000"
+        android:textColor="#FFFFFF"
+        android:text="Cancelar"
+        android:background="@drawable/botao_redondo"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText_PrecoServico"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

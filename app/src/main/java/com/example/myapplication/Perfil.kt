@@ -1,61 +1,79 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.adapter.AdapterServicos
+import com.example.myapplication.model.Servicos
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Perfil.newInstance] factory method to
- * create an instance of this fragment.
- */
+// ====================== Perfil ======================
 class Perfil : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-
-    }
+    private lateinit var recyclerViewServicos: RecyclerView
+    private lateinit var adapterServicos: AdapterServicos
+    private val listaServicos: MutableList<Servicos> = mutableListOf()
+    private val db = FirebaseFirestore.getInstance()
+    private var listenerRegistration: ListenerRegistration? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_perfil, container, false)
+
+        recyclerViewServicos = view.findViewById(R.id.recyclerViewServicos)
+        recyclerViewServicos.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+        recyclerViewServicos.setHasFixedSize(true)
+
+        adapterServicos = AdapterServicos(requireContext(), listaServicos)
+        recyclerViewServicos.adapter = adapterServicos
+
+        observarServicosFirestore()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Perfil.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Perfil().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun observarServicosFirestore() {
+        listenerRegistration = db.collection("GerServicos")
+            .addSnapshotListener { snapshots, e ->
+                if (e != null) {
+                    Log.e("Perfil", "Erro ao carregar serviços", e)
+                    return@addSnapshotListener
+                }
+
+                if (snapshots != null) {
+                    listaServicos.clear()
+                    for (doc in snapshots) {
+                        val servico = doc.toObject(Servicos::class.java)
+                        listaServicos.add(servico)
+                    }
+                    adapterServicos.notifyDataSetChanged()
                 }
             }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        listenerRegistration?.remove() // remove listener para evitar memory leak
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val botaoNovoServico: Button = view.findViewById(R.id.button_NovoServico)
+        botaoNovoServico.setOnClickListener {
+            val dialog = DialogServicos()
+            dialog.show(parentFragmentManager, "DialogServicos")
+        }
     }
 }

@@ -50,7 +50,6 @@
 
 
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewServicos"
             android:layout_width="match_parent"

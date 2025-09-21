@@ -40,6 +40,8 @@
         </activity>
 
 
+
+
         <activity
             android:name=".BarberHub"
             android:exported="true"
@@ -52,6 +54,7 @@
             </intent-filter>
 
         </activity>
+
 
 
 

@@ -60,25 +60,37 @@ class Agenda : Fragment() { // nome ajustado
             grid.removeAllViews() // limpa os horários anteriores
 
             if (document.exists()) {
-                val horariosSalvos = document.get("horarios") as? List<String> ?: emptyList()
+                val raw = document.get("horarios")
+                val horariosSalvos = (raw as? List<*>)?.mapNotNull {
+                    it as? Map<String, Any>
+                } ?: emptyList()
 
-                for (horario in horariosSalvos) {
-                    val textView = TextView(requireContext()).apply {
-                        text = horario
-                        textSize = 16f
-                        setPadding(80, 24, 80, 24)
-                        setBackgroundResource(R.drawable.bg_horario)
-                        setTextColor(ContextCompat.getColor(requireContext(), R.color.teal_700))
-                        gravity = Gravity.CENTER
+                for (horarioData in horariosSalvos) {
+                    val hora = horarioData["hora"] as? String ?: continue
+                    val status = horarioData["status"] as? String ?: "indisponivel"
+
+                    if (status == "disponivel" || status == "ocupado") {
+                        val textView = TextView(requireContext()).apply {
+                            text = hora
+                            textSize = 16f
+                            setPadding(80, 24, 80, 24)
+                            setBackgroundResource(R.drawable.bg_horario)
+                            setTextColor(ContextCompat.getColor(requireContext(), R.color.teal_700))
+                            gravity = Gravity.CENTER
+
+                            if (status == "ocupado") {
+                                alpha = 0.5f // deixa "apagado" se já está ocupado
+                            }
+                        }
+                        grid.addView(textView)
                     }
-                    grid.addView(textView)
                 }
             }
-            // Se não houver horários → grid fica vazio dentro do container
         }.addOnFailureListener {
             Toast.makeText(requireContext(), "Erro ao carregar horários.", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
