@@ -55,7 +55,7 @@
 
         </activity>
 
-
+        <activity android:name=".TelaTeste" />
 
 
 

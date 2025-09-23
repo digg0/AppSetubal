@@ -34,12 +34,6 @@ class MainActivity : ComponentActivity() {
 
 
 
-//        val botaoFunc = findViewById<Button>(R.id.botao_func)
-//
-//        botaoFunc.setOnClickListener{
-//            val intent = Intent(this, SecondActivity::class.java)
-//            startActivity(intent)
-//        }
 
         binding.botaoEntrar.setOnClickListener{
             val email = binding.campoUsuario.text.toString()
@@ -69,11 +63,37 @@ class MainActivity : ComponentActivity() {
 
 
     }
-    private fun navegarTelaPrincipal(){
-        val intent = Intent (this, BarberHub::class.java)
-        startActivity(intent)
-        finish()
+    private fun navegarTelaPrincipal() {
+        val userId = FirebaseAuth.getInstance().currentUser?.uid
+
+        if (userId != null) {
+            val db = com.google.firebase.firestore.FirebaseFirestore.getInstance()
+
+            db.collection("Usuarios").document(userId).get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val tipo = document.getString("tipo")
+
+                        if (tipo == "funcionario") {
+                            val intent = Intent(this, BarberHub::class.java)
+                            startActivity(intent)
+                        }
+
+                        if (tipo == "cliente") {
+                            val intent = Intent(this, TelaTeste::class.java) // cliente
+                            startActivity(intent)
+                        }
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Usuário não encontrado no banco!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Erro ao buscar dados do usuário!", Toast.LENGTH_SHORT).show()
+                }
+        }
     }
+
 
     override fun onStart() {
         super.onStart()

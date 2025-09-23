@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentConfigsBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -37,6 +39,14 @@ class AjusteHorarios : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.buttonSair.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            voltarTelaLogin()
+        }
+
+
 
         // Atualizar banco (apagar antigos + criar próximos)
         atualizarDias()
@@ -172,6 +182,7 @@ class AjusteHorarios : Fragment() {
         }
     }
 
+
     private fun salvarHorariosDisponiveis(
         horariosSelecionados: List<Map<String, Any>>,
         data: String
@@ -208,6 +219,13 @@ class AjusteHorarios : Fragment() {
         }
     }
 
+    private fun voltarTelaLogin() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
+    }
+
+
     private fun atualizarDias() {
         val db = FirebaseFirestore.getInstance()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -229,6 +247,7 @@ class AjusteHorarios : Fragment() {
                     }
                 }
             }
+
 
         val horariosPadrao = listOf(
             "08:00", "08:30", "09:00", "09:30",
@@ -259,6 +278,9 @@ class AjusteHorarios : Fragment() {
                 }
             }
         }
+
+
+
     }
 
     override fun onDestroyView() {
