@@ -46,11 +46,13 @@ class TelaCadastro : ComponentActivity() {
             val nome = binding.cadNome.text.toString()
             val contato = binding.cadContato.text.toString()
 
+
             val usuariosMap = hashMapOf(
                 "nome" to nome,
                 "contato" to contato,
                 "email" to email,
-                "senha" to senha
+                "tipo" to "cliente"
+
             )
 
             if(email.isEmpty()|| senha.isEmpty() || nome.isEmpty() || contato.isEmpty() ){
@@ -59,15 +61,28 @@ class TelaCadastro : ComponentActivity() {
             }else{
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener{ cadastro ->
 
-                    if (cadastro.isSuccessful){
-                        Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
-                        binding.cadEmail.setText("")
-                        binding.cadSenha.setText("")
-                        binding.cadNome.setText("")
-                        binding.cadContato.setText("")
-                        database.collection("Usuarios").document(nome).set(usuariosMap)
-                        FirebaseAuth.getInstance().signOut()
-                        voltarTelaLogin()
+                    if (cadastro.isSuccessful) {
+                        val uid = auth.currentUser?.uid
+                        if (uid != null) {
+                            database.collection("Usuarios")
+                                .document(uid)
+                                .set(usuariosMap)
+                                .addOnSuccessListener {
+                                    Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show()
+
+
+                                    binding.cadEmail.setText("")
+                                    binding.cadNome.setText("")
+                                    binding.cadContato.setText("")
+                                    binding.cadSenha.setText("")
+
+                                    FirebaseAuth.getInstance().signOut()
+                                    voltarTelaLogin()
+                                }
+                                .addOnFailureListener { e ->
+                                    Toast.makeText(this, "Erro ao salvar dados: ${e.message}", Toast.LENGTH_SHORT).show()
+                                }
+                        }
                     }
                 }.addOnFailureListener{exceptions ->
 
