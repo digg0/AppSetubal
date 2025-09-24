@@ -1,0 +1,15 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Fundo verde claro com transparência -->
+    <solid android:color="#1A00C853" />
+    <!-- 1A = ~10% opacidade | 00C853 = verde -->
+
+    <!-- Borda verde -->
+    <stroke
+        android:width="2dp"
+        android:color="#00C853"/>
+
+    <!-- Bordas arredondadas -->
+    <corners android:radius="7dp"/>
+</shape>

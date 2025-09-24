@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.myapplication.databinding.FragmentAgendaBinding
@@ -36,7 +37,7 @@ class Agenda : Fragment() { // nome ajustado
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // DatePicker para selecionar data
+
         binding.ContainerAgendamentosDoDia.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
             calendar.set(Calendar.YEAR, year)
             calendar.set(Calendar.MONTH, monthOfYear)
@@ -46,7 +47,8 @@ class Agenda : Fragment() { // nome ajustado
             val mes = (monthOfYear + 1).toString().padStart(2, '0')
             data = "$year-$mes-$dia"
 
-            // Buscar os horários no Firebase
+
+
             carregarHorarios(data)
         }
 
@@ -81,7 +83,10 @@ class Agenda : Fragment() { // nome ajustado
                             gravity = Gravity.CENTER
 
                             if (status == "ocupado") {
-                                alpha = 0.5f // deixa "apagado" se já está ocupado
+
+                                setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+                                setBackgroundResource(R.drawable.container_ocupado)
+
                             }
                         }
                         grid.addView(textView)

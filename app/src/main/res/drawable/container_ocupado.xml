@@ -1,0 +1,15 @@
+<!-- res/drawable/container_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Borda -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/red"/>   <!-- cor da sua borda -->
+
+    <!-- Fundo transparente -->
+    <solid android:color="@android:color/transparent"/>
+
+    <!-- Raio dos cantos (opcional) -->
+    <corners android:radius="8dp"/>
+</shape>

@@ -1,0 +1,214 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/TextView_MeuPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meu Perfil"
+            android:textSize="19sp"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/TextView_MeuPerfil2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informações da Barbearia"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <!-- Container Ações -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/containerAcoes"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:padding="16dp">
+
+
+
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/container_border"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:id="@+id/ImageView_FotoCliente"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+
+                        android:scaleType="centerCrop"
+                        android:background="@drawable/circle_background"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/TextView_NomeCliente1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="João Silva"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginTop="10dp"/>
+
+                    <Button
+                        android:id="@+id/Button_EditarPerfil"
+                        android:layout_width="71dp"
+                        android:layout_height="31dp"
+                        android:text="Editar"
+                        android:textSize="12dp"
+                        android:textAllCaps="false"
+                        app:backgroundTint="@color/grey"
+                        android:background="@drawable/container_border"
+                        android:padding="2dp"
+
+                        android:textColor="#000000"
+                        android:layout_marginLeft="60dp"
+                        android:drawableLeft="@drawable/baseline_edit_24"
+                       />
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+                <!-- Nome da Barbearia -->
+                <TextView
+                    android:id="@+id/TextView_NomeCliente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nome Completo"
+                    android:textColor="#2c2c2c"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginTop="25dp"
+                    />
+
+                <EditText
+                    android:id="@+id/EditText_NomeCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/container_edittext"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="#f3f3f5"/>
+
+
+
+
+
+
+
+
+                <!-- Telefone -->
+                <TextView
+                    android:id="@+id/TextView_TelefoneBarbearia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Telefone"
+                    android:textColor="#2c2c2c"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/EditText_TelefoneBarbearia"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/container_edittext"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="#f3f3f5"/>
+
+                <!-- Endereço -->
+                <TextView
+                    android:id="@+id/TextView_Email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="#2c2c2c"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/EditText_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/container_edittext"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="#f3f3f5"/>
+
+                <!-- Botão Salvar -->
+                <Button
+                    android:id="@+id/button_SalvarInformações"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="Salvar Informações"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:background="@drawable/botao_redondo"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="sans-serif-medium"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/Button_SairDaConta"
+            android:text="Sair Da Conta"
+            android:textAllCaps="false"
+            android:background="@drawable/container_border"
+            app:backgroundTint="@color/red"
+            android:textColor="@color/red"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:drawableLeft="@drawable/baseline_subdirectory_arrow_left_24"
+
+            >
+
+
+        </Button>
+
+
+
+
+
+
+    </LinearLayout>
+</ScrollView>

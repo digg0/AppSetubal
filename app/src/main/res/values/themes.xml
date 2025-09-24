@@ -14,7 +14,7 @@
     </style>
 
     <style name="MyCustomButton" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">#1b6c82</item>
+        <item name="backgroundTint">#0F0F0F</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
 

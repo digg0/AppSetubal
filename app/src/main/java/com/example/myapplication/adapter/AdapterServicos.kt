@@ -33,21 +33,21 @@ class AdapterServicos(
         holder.preco.text = "R$ ${servico.preco}"
         holder.duracao.text = "${servico.duracao} min"
 
-        // Botão de deletar com confirmação
+
         holder.botaoDeletar.setOnClickListener {
 
-            // Cria um Dialog usando o layout customizado
-            val dialog = android.app.Dialog(context)
-            dialog.setContentView(R.layout.layout_dialog_aviso) // substitua pelo nome do seu XML
-            dialog.setCancelable(true) // pode fechar ao clicar fora
 
-            // Referências aos botões do seu layout
+            val dialog = android.app.Dialog(context)
+            dialog.setContentView(R.layout.layout_dialog_aviso)
+            dialog.setCancelable(true)
+
+
             val botaoSim: Button = dialog.findViewById(R.id.botaoConfirmar)
             val botaoNao: Button = dialog.findViewById(R.id.botaoCancelar)
             val titulo: TextView = dialog.findViewById(R.id.textViewTitulo)
             val mensagem: TextView = dialog.findViewById(R.id.textViewMensagem)
 
-            // Personaliza texto se quiser
+
             titulo.text = "Confirmação"
             mensagem.text = "Tem certeza que deseja deletar este serviço?"
 
@@ -75,7 +75,6 @@ class AdapterServicos(
         db.collection("GerServicos").document(documentId)
             .delete()
             .addOnSuccessListener {
-                // Não mexemos na lista local; o listener no Fragment atualiza automaticamente
                 Toast.makeText(context, "Serviço deletado com sucesso!", Toast.LENGTH_SHORT).show()
             }
             .addOnFailureListener { e ->

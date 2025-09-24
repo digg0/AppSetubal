@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Build
@@ -42,14 +43,18 @@ class AjusteHorarios : Fragment() {
 
 
         binding.buttonSair.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            voltarTelaLogin()
+            AlertDialog.Builder(requireContext())
+                .setTitle("Sair da Conta")
+                .setMessage("Tem certeza que deseja sair?")
+                .setPositiveButton("Sim") { _, _ ->
+                    FirebaseAuth.getInstance().signOut()
+                    voltarTelaLogin()
+                }
+                .setNegativeButton("Cancelar", null)
+                .show()
         }
 
 
-
-        // Atualizar banco (apagar antigos + criar próximos)
-        atualizarDias()
 
         // Lista de checkboxes
         checkboxes = listOf(
@@ -71,7 +76,7 @@ class AjusteHorarios : Fragment() {
             "18:00"
         )
 
-        // Define os textos nos checkboxes
+
         for ((index, cb) in checkboxes.withIndex()) {
             cb.text = horarios[index]
         }
@@ -91,12 +96,12 @@ class AjusteHorarios : Fragment() {
         // Carregar horários do dia atual ao abrir a tela
         onDataSelecionada(anoAtual, mesAtual, diaAtual)
 
-        // Permitir marcar/desmarcar sem salvar automático
+
         for (checkbox in checkboxes) {
             checkbox.setOnCheckedChangeListener { _, _ -> }
         }
 
-        // Botão para salvar horários
+
         binding.buttonSalvarHorarios.setOnClickListener {
             if (data.isEmpty()) {
                 Toast.makeText(requireContext(), "Selecione uma data primeiro", Toast.LENGTH_SHORT).show()
@@ -161,7 +166,7 @@ class AjusteHorarios : Fragment() {
                             cb.isEnabled = true
                         }
                         "ocupado" -> {
-                            cb.isChecked = false
+                            cb.isChecked = true
                             cb.isEnabled = false
                         }
                         else -> {
@@ -226,62 +231,7 @@ class AjusteHorarios : Fragment() {
     }
 
 
-    private fun atualizarDias() {
-        val db = FirebaseFirestore.getInstance()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-        val limitePassado = java.util.Calendar.getInstance().apply {
-            add(java.util.Calendar.DAY_OF_YEAR, -30)
-        }
-        val limitePassadoStr = dateFormat.format(limitePassado.time)
-
-        // Apagar últimos 30 dias
-        db.collection("horariosDisponiveis")
-            .get()
-            .addOnSuccessListener { snapshot ->
-                for (doc in snapshot.documents) {
-                    val dataDoc = doc.getString("data") ?: continue
-                    if (dataDoc < limitePassadoStr) {
-                        println("DEBUG >>> apagando dia antigo: $dataDoc")
-                        doc.reference.delete()
-                    }
-                }
-            }
-
-
-        val horariosPadrao = listOf(
-            "08:00", "08:30", "09:00", "09:30",
-            "10:00", "10:30", "11:00", "11:30",
-            "12:00", "12:30", "13:00", "13:30",
-            "14:00", "14:30", "15:00", "15:30",
-            "16:00", "16:30", "17:00", "17:30",
-            "18:00"
-        ).map { hora -> mapOf("hora" to hora, "status" to "indisponivel") }
-
-        // Criar próximos 20 dias se não existirem
-        for (i in 0..20) {
-            val dia = java.util.Calendar.getInstance().apply {
-                add(java.util.Calendar.DAY_OF_YEAR, i)
-            }
-            val dataStr = dateFormat.format(dia.time)
-
-            val ref = db.collection("horariosDisponiveis").document(dataStr)
-            ref.get().addOnSuccessListener { doc ->
-                if (!doc.exists()) {
-                    val novoDia = hashMapOf(
-                        "data" to dataStr,
-                        "horarios" to horariosPadrao
-                    )
-                    ref.set(novoDia).addOnSuccessListener {
-                        println("DEBUG >>> criado novo dia: $dataStr")
-                    }
-                }
-            }
-        }
-
-
-
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

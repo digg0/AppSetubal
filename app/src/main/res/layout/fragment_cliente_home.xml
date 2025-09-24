@@ -12,42 +12,80 @@
         android:padding="16dp"
         android:gravity="top">
 
-        <View
-            android:id="@+id/containerTotalAgendamentos"
-            style="@style/ContainerBorder"
-            android:layout_width="165dp"
-            android:layout_height="90dp"
-            app:layout_constraintTop_toBottomOf="@+id/Container_AgendamentosDoDia"
-            android:layout_marginTop="20dp"
 
-
-
-            />
         <ImageView
             android:id="@+id/Container_AgendamentosDoDia"
             android:background="@drawable/container_components"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="150dp"
-            app:layout_constraintTop_toBottomOf="@id/containerTotalAgendamentos"
-            app:layout_constraintStart_toStartOf="@id/containerTotalAgendamentos"
-            app:layout_constraintEnd_toEndOf="@id/containerTotalAgendamentos"
-            app:layout_constraintBottom_toTopOf="@id/containerTotalAgendamentos"
-
-            >
+            app:layout_constraintStart_toStartOf="parent">
 
         </ImageView>
 
-        <View
-            android:id="@+id/containerFaturamentoPrevisto"
+        <TextView
+            android:id="@+id/TextView_NomeBarbeariaCliente"
+            android:hint="Barbearia Nome"
+            android:textColorHint="#FFFF"
+            android:textSize="18sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/Container_AgendamentosDoDia"
+            app:layout_constraintStart_toStartOf="@id/Container_AgendamentosDoDia"
+            android:layout_marginBottom="55dp"/>
 
+        <TextView
+            android:id="@+id/TextView_EstadoBarbearia"
+            android:hint="Aberto"
+            android:background="@drawable/status"
+            android:backgroundTint="@color/green"
+            android:textColorHint="@color/green"
+            android:textSize="11sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_NomeBarbeariaCliente"
+            app:layout_constraintStart_toStartOf="@id/Container_AgendamentosDoDia"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_marginBottom="100dp"/>
+
+
+        <Button
+            android:id="@+id/Button_AgendarHorario"
+            android:background="@drawable/container_edittext"
+            android:text="Agendar Horário"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_width="165dp"
+            android:layout_height="90dp"
+            app:layout_constraintTop_toBottomOf="@+id/Container_AgendamentosDoDia"
+            android:layout_marginTop="20dp"
+            android:drawableTop="@drawable/baseline_calendar_today_24"
+            android:padding="15dp"
+
+            >
+
+
+            </Button>
+
+
+        <Button
+            android:id="@+id/Button_Contato"
             style="@style/ContainerBorder"
             android:layout_width="165dp"
             android:layout_height="90dp"
             android:layout_marginStart="20dp"
+            android:text="Entre em Contato"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:padding="15dp"
             app:layout_constraintTop_toBottomOf="@+id/Container_AgendamentosDoDia"
-            app:layout_constraintStart_toEndOf="@id/containerTotalAgendamentos"
-            app:layout_constraintBottom_toBottomOf="@id/containerTotalAgendamentos"
+            app:layout_constraintStart_toEndOf="@id/Button_AgendarHorario"
+            app:layout_constraintBottom_toBottomOf="@id/Button_AgendarHorario"
             android:layout_marginTop="20dp"
+            android:drawableTop="@drawable/baseline_local_phone_24"
             />
 
 
@@ -57,82 +95,318 @@
 
 
 
-
-
-        <View
-            android:id="@+id/containerAcoes"
-            style="@style/ContainerBorder"
-            android:layout_width="350dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/containerFaturamentoPrevisto"
-            android:layout_marginTop="20dp"
-            />
-
-        <TextView
-            android:id="@+id/TextView_NossosServicos"
-            android:hint="Ações Rápidas"
-            android:fontFamily="sans-serif-medium"
-            android:textColorHint="#000000"
-            android:textSize="16sp"
-            android:layout_marginLeft="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/containerAcoes"
-            app:layout_constraintStart_toStartOf="@id/containerAcoes"
-            app:layout_constraintBottom_toTopOf="@+id/containerFaturamentoPrevisto"
-            android:layout_marginTop="45dp"/>
 
 
 
         <FrameLayout
-            android:id="@+id/Container_HorariosDisponiveisHoje"
+            android:id="@+id/Container_NossosServiços"
             style="@style/ContainerBorder"
-            android:layout_width="350dp"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/containerAcoes">
+            app:layout_constraintTop_toBottomOf="@+id/Button_Contato">
 
             <TextView
-                android:id="@+id/TextView_HorariosDisponiveisHoje"
-                android:hint="Horários Disponíveis Hoje"
-                android:fontFamily="sans-serif-medium"
+                android:id="@+id/TextView_NossosServiços"
+                android:hint="  Nossos Serviços"
                 android:textColorHint="#000000"
                 android:textSize="16sp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/baseline_content_cut_24"/>
 
-            <!-- Aqui vai o grid dos horários -->
-            <GridLayout
+
+            <ListView
                 android:id="@+id/GridHorarios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="3"
-                android:orientation="horizontal"
                 android:padding="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="40dp"
-                android:useDefaultMargins="true"/>
+                />
         </FrameLayout>
 
 
+        <View
+            android:id="@+id/Container_Localização"
+            android:background="@drawable/container_border"
+            android:layout_width="350dp"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toBottomOf="@+id/Container_NossosServiços"
+            android:layout_marginTop="20dp"/>
 
+
+
+        <TextView
+            android:id="@+id/TextView_Localização"
+            android:hint="  Localização"
+            android:textColorHint="#000000"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/Container_Localização"
+            app:layout_constraintStart_toStartOf="@id/Container_Localização"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/outline_location_on_24"/>
+
+        <TextView
+            android:id="@+id/TextView_NomeRua"
+            android:hint="Rua das Flores, 123 - Centro"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/TextView_Localização"
+            app:layout_constraintStart_toStartOf="@id/Container_Localização"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            />
+
+
+        <TextView
+            android:id="@+id/TextView_Cidade"
+            android:hint="São Paulo, SP - 01234-567"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/TextView_NomeRua"
+            app:layout_constraintStart_toStartOf="@id/Container_Localização"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/TextView_Telefone"
+            android:hint="  (11) 99999-9999"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/TextView_Cidade"
+            app:layout_constraintStart_toStartOf="@id/Container_Localização"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/baseline_local_phone_24"
+            />
 
 
 
 
         <View
-            android:id="@+id/Container_EstatisticasDaSemana"
-            style="@style/ContainerBorder"
+            android:id="@+id/Container_HorariosDeFuncionamento"
+            android:background="@drawable/container_border"
             android:layout_width="350dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/Container_HorariosDisponiveisHoje"
-            android:layout_marginTop="20dp"
+            android:layout_height="280dp"
+            app:layout_constraintTop_toBottomOf="@+id/Container_Localização"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/TextView_HorariosDeFuncionamento"
+            android:hint="  Horarios De Funcionamento"
+            android:textColorHint="#000000"
+            android:textSize="16sp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/Container_HorariosDeFuncionamento"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/baseline_access_time_24"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Segunda"
+            android:hint="Segunda"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/TextView_HorariosDeFuncionamento"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+
             />
+
+
+        <TextView
+            android:id="@+id/Horario_Segunda"
+            android:hint="09:00 - 19:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/TextView_HorariosDeFuncionamento"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Terça"
+            android:hint="Terça"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Segunda"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Terça"
+            android:hint="09:00 - 19:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Segunda"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Quarta"
+            android:hint="Quarta"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Terça"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Quarta"
+            android:hint="09:00 - 19:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Terça"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Quinta"
+            android:hint="Quinta"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Quarta"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Quinta"
+            android:hint="09:00 - 19:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Quarta"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/TextView_Sexta"
+            android:hint="Sexta"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Quinta"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Sexta"
+            android:hint="09:00 - 19:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/TextView_Quinta"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Sábado"
+            android:hint="Sábado"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Sexta"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Sábado"
+            android:hint="08:00 - 18:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Sexta"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:id="@+id/TextView_Domingo"
+            android:hint="Domingo"
+            android:textColorHint="#000000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Sábado"
+            android:layout_marginTop="10dp"
+
+            />
+
+
+        <TextView
+            android:id="@+id/Horario_Domingo"
+            android:hint="Fechado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/Container_HorariosDeFuncionamento"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/Horario_Sábado"
+            android:layout_marginTop="10dp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

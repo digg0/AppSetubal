@@ -46,34 +46,35 @@
 
             <Button
                 android:id="@+id/btnAtivar"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="35dp"
                 android:text="Ativar"
-                android:background="@drawable/button_green"
+                android:background="@drawable/container_border"
                 app:backgroundTint="@color/green"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
+                android:textColor="@color/green"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"/>
 
             <Button
-                android:id="@+id/btnEditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="✏"
+                android:id="@+id/buttonEditar"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                app:backgroundTint="@color/teal_700"
                 android:layout_marginStart="8dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="8dp" />
-
+                android:layout_gravity="center"
+                android:background="@drawable/container_border"
+                android:drawableTint="@color/teal_700"
+                android:drawableTop="@drawable/baseline_edit_24"/>
             <Button
                 android:id="@+id/buttonDeletar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 app:backgroundTint="@color/red"
                 android:layout_marginStart="8dp"
-                android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:padding="8dp" />
+                android:layout_gravity="center"
+                android:background="@drawable/container_border"
+                android:drawableTop="@drawable/outline_delete_24"/>
         </LinearLayout>
     </LinearLayout>
 
